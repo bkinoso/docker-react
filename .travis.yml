@@ -5,5 +5,5 @@ services:
 before_install:
   - docker build -t tundeker/docker_react -f Dockerfile.dev .
 
-scripts: 
+script: 
   - docker run tundeker/docker_react npm run test -- --coverage
