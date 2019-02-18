@@ -7,3 +7,16 @@ before_install:
 
 script: 
   - docker run tundeker/docker_react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-778948598153"
+  bucket-path: "docker-react"
+  on:
+    branch: master
+  access_key_id: "$docker-react-access-key"
+  secret_access_key: 
+    secure: "$docker-react-secret-key"
